@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#HACK26 — RENO Hackathon 2026</title>
+<meta name="description" content="#HACK26 — RENO Hackathon 2026. Three days. Three themes. One MVP. Run by RENO, a formation in the Singapore Armed Forces.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">#HACK26</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navList" class="nav-list" aria-label="Section navigation">
+      <a href="#about" data-nav>About</a>
+      <a href="#themes" data-nav>Themes</a>
+      <a href="#dates" data-nav>Key Dates</a>
+      <a href="#team" data-nav>Your Team</a>
+      <a href="#build" data-nav>How to Build</a>
+      <a href="#submit" data-nav>Submit</a>
+      <a href="#day3" data-nav>Day 3 &amp; Judging</a>
+      <a href="#prizes" data-nav>Prizes</a>
+      <a href="#programme" data-nav>Programme</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1. HERO -->
+  <section id="hero" class="hero" aria-label="Hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-inner reveal-immediate">
+      <img class="hero-logo" src="assets/reno-formation-logo.png" alt="RENO formation logo — stylised bird over a globe with sprouting leaves, encircled by a gold ring" width="360" height="360">
+      <p class="eyebrow">RENO Hackathon 2026</p>
+      <h1 class="hero-word">#HACK26</h1>
+
+      <div class="countdown" id="countdown" role="group" aria-label="Countdown to Day 1">
+        <div class="countdown-live" id="countdownLive" hidden>
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>#HACK26 IS LIVE</span>
+        </div>
+        <div class="countdown-grid" id="countdownGrid" aria-live="polite">
+          <div class="cd-unit">
+            <span class="cd-num" id="cdDays">00</span>
+            <span class="cd-label">Days</span>
+          </div>
+          <div class="cd-sep" aria-hidden="true">:</div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdHours">00</span>
+            <span class="cd-label">Hours</span>
+          </div>
+          <div class="cd-sep" aria-hidden="true">:</div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdMinutes">00</span>
+            <span class="cd-label">Minutes</span>
+          </div>
+          <div class="cd-sep" aria-hidden="true">:</div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cdSeconds">00</span>
+            <span class="cd-label">Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-caption">Countdown to Day 1, 0900H (SGT) — 23 September 2026</p>
+      </div>
+
+      <a href="#about" class="cta-btn" data-scroll>
+        <span>Explore #HACK26</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">
+      <span></span>
+      <p>Scroll</p>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT + RENO SPIRIT -->
+  <section id="about" class="section" aria-labelledby="about-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Overview</p>
+      <h2 id="about-h" class="section-title reveal">Build something that matters. In three days.</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Participants are placed into <strong>teams of three</strong>. Over three days, each team writes its own problem statement under one of the three #HACK26 themes, gets it approved, and builds a working <strong>Minimum Viable Product (MVP)</strong> that solves it.</p>
+          <p>On the final day, teams pitch to a judging panel and showcase at the exhibition.</p>
+        </div>
+        <div class="headline-card reveal">
+          <svg class="headline-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 8.3-7 9-4-.7-7-4.5-7-9V7l7-4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <p>Only two things are compulsory to submit: your approved problem statement and your MVP.</p>
+          <p class="headline-sub">Everything else is optional.</p>
+        </div>
+      </div>
+
+      <div class="section-divider reveal" aria-hidden="true"></div>
+
+      <p class="eyebrow reveal">The RENO Spirit</p>
+      <h3 id="spirit-h" class="subhead subhead-lg reveal">Aspire · Collaborate · Experiment · Resolve</h3>
+      <p class="section-lede reveal">"#HACK26 runs on the RENO spirit: Aspire, Collaborate, Experiment, Resolve. Collaborate across units, learn and experiment boldly, build solutions that matter, and drive lasting impact for RENO."</p>
+
+      <div class="spirit-grid" id="spiritGrid">
+        <div class="spirit-card reveal" style="--d:0">
+          <svg class="spirit-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8L3.5 9.7l5.9-.9L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <h4>Aspire</h4>
+        </div>
+        <div class="spirit-card reveal" style="--d:1">
+          <svg class="spirit-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 19v-1a4 4 0 00-4-4H7a4 4 0 00-4 4v1M9.5 10a3 3 0 100-6 3 3 0 000 6zM21 19v-1a4 4 0 00-3-3.87M16.5 4.13A4 4 0 0118 11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h4>Collaborate</h4>
+        </div>
+        <div class="spirit-card reveal" style="--d:2">
+          <svg class="spirit-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3h6M10 3v6.5L5.2 17.4A2 2 0 007 20.4h10a2 2 0 001.8-3L14 9.5V3M8 14h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h4>Experiment</h4>
+        </div>
+        <div class="spirit-card reveal" style="--d:3">
+          <svg class="spirit-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 21V4M5 4c3-2 6 2 9 0s5 0 5 0v9s-2 1.5-5 0-6-2-9 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h4>Resolve</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THREE THEMES -->
+  <section id="themes" class="section" aria-labelledby="themes-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Themes</p>
+      <h2 id="themes-h" class="section-title reveal">Every problem statement falls under exactly one theme</h2>
+
+      <div class="theme-grid">
+        <article class="theme-card reveal" style="--d:0">
+          <div class="theme-gear" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="gear gear-cw"><use href="#gear-shape"/></svg>
+          </div>
+          <span class="theme-index">01</span>
+          <h3>Smarter RENO</h3>
+          <p class="theme-category">Process</p>
+          <p class="theme-focus">Digitising administrative processes</p>
+          <ul class="theme-list">
+            <li>Streamlined processes</li>
+            <li>Automation and efficiency</li>
+            <li>Data-driven decisions</li>
+          </ul>
+        </article>
+
+        <article class="theme-card reveal" style="--d:1">
+          <div class="theme-gear" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="gear gear-ccw"><use href="#gear-shape"/></svg>
+          </div>
+          <span class="theme-index">02</span>
+          <h3>Gamifying RENO</h3>
+          <p class="theme-category">Capability</p>
+          <p class="theme-focus">Digitising training and teaming experiences</p>
+          <ul class="theme-list">
+            <li>Training delivery</li>
+            <li>Skills-building</li>
+            <li>Team cohesion and engagement</li>
+          </ul>
+        </article>
+
+        <article class="theme-card reveal" style="--d:2">
+          <div class="theme-gear" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="gear gear-cw"><use href="#gear-shape"/></svg>
+          </div>
+          <span class="theme-index">03</span>
+          <h3>Well-Being RENO</h3>
+          <p class="theme-category">People</p>
+          <p class="theme-focus">Digitising health, fitness and well-being</p>
+          <ul class="theme-list">
+            <li>Physical wellness</li>
+            <li>Mental wellness</li>
+            <li>Community and support</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. KEY DATES -->
+  <section id="dates" class="section section-band" aria-labelledby="dates-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Key Dates</p>
+      <h2 id="dates-h" class="section-title reveal">Mark these on your calendar</h2>
+
+      <div class="dates-list">
+        <div class="date-row reveal" style="--d:0">
+          <div class="date-badge"><span class="date-day">14</span><span class="date-mon">SEP</span></div>
+          <div class="date-body">
+            <p class="date-when">Mon, 14 Sep 2026 · 0900H – 1200H</p>
+            <h3>Pre-Hackathon Workshop</h3>
+            <p>Crafting Effective Problem Statements / Intro to Vibe Coding</p>
+            <p class="date-attend">Optional, but strongly recommended — it covers exactly the skills you will use on Day 1.</p>
+          </div>
+        </div>
+        <div class="date-row reveal" style="--d:1">
+          <div class="date-badge"><span class="date-day">23</span><span class="date-mon">SEP</span></div>
+          <div class="date-body">
+            <p class="date-when">Wed, 23 Sep 2026 · 0900H – 1700H</p>
+            <h3>Day 1</h3>
+            <p>Opening, theme briefing, team brainstorming and crafting of problem statements</p>
+            <p class="date-attend">Attendance: Yes</p>
+          </div>
+        </div>
+        <div class="date-row reveal" style="--d:2">
+          <div class="date-badge"><span class="date-day">24</span><span class="date-mon">SEP</span></div>
+          <div class="date-body">
+            <p class="date-when">Thu, 24 Sep 2026 · 0900H – 1700H</p>
+            <h3>Day 2</h3>
+            <p>Protected build time for your MVP</p>
+            <p class="date-attend">Attendance: Yes</p>
+          </div>
+        </div>
+        <div class="date-row reveal" style="--d:3">
+          <div class="date-badge"><span class="date-day">25</span><span class="date-mon">SEP</span></div>
+          <div class="date-body">
+            <p class="date-when">Fri, 25 Sep 2026 · 0900H – 1700H</p>
+            <h3>Day 3</h3>
+            <p>Final touch-ups, pitching to the judging panel, exhibition and prize presentation</p>
+            <p class="date-attend">Attendance: Yes</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. YOUR TEAM + EQUIPMENT -->
+  <section id="team" class="section" aria-labelledby="team-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Your Team</p>
+      <h2 id="team-h" class="section-title reveal">Three to a team, assigned for you</h2>
+      <div class="info-grid">
+        <div class="info-card reveal" style="--d:0">
+          <span class="info-num">3</span>
+          <p>Teams are strictly three members each.</p>
+        </div>
+        <div class="info-card reveal" style="--d:1">
+          <p>You do not choose your own team. The Organising Committee assigns every participant to a team, balancing proficiency levels so that all teams start on a fair and even footing.</p>
+        </div>
+        <div class="info-card reveal" style="--d:2">
+          <p>Team allocations will be announced by the Organising Committee. Teams cannot be swapped or re-arranged once announced.</p>
+        </div>
+        <div class="info-card reveal" style="--d:3">
+          <p>Every member is expected to contribute. Whether all three present at the pitch is up to the team.</p>
+        </div>
+        <div class="info-card reveal" style="--d:4">
+          <p>There is no minimum headcount to stay eligible. If a member is absent for part or all of the event, the team follows the programme as scheduled with the members present.</p>
+        </div>
+      </div>
+
+      <div class="section-divider reveal" aria-hidden="true"></div>
+
+      <p class="eyebrow reveal">Your Equipment</p>
+      <h3 id="equipment-h" class="subhead subhead-lg reveal">Bring what's approved. Build with what you know.</h3>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Bring your own laptop. It must be the same laptop already approved through the separate equipment FormSG submission your team should have completed prior to the event. Do not bring an unapproved device.</p>
+        </div>
+        <div class="about-text reveal">
+          <p>You are free to use any tool or software of your choice to build your MVP, including any personal licences you already own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. HOW YOU'LL BUILD: STEP ONE + STEP TWO -->
+  <section id="build" class="section" aria-labelledby="build-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">How You'll Build It</p>
+      <h2 id="build-h" class="section-title reveal">Two steps: write it, then build it</h2>
+
+      <p class="eyebrow reveal" style="margin-top:0.5rem">Step One</p>
+      <h3 id="step1-h" class="subhead subhead-lg reveal" style="margin-top:0">Craft and get your problem statement approved</h3>
+      <div class="about-text reveal">
+        <p>Unlike hackathons where the problems are handed to you, at #HACK26 your team writes its own problem statement. This is the foundation of everything you build, so it carries real weight with the judges.</p>
+        <p>Day 1 is the only time set aside in the programme for brainstorming and crafting. Your problem statement must therefore be finalised on <strong>Day 1 (23 Sep)</strong>.</p>
+        <p>Once finalised, approach the Organising Committee for approval straight away. There is no need to wait for a fixed checkpoint.</p>
+        <p><strong>Approval unlocks your build.</strong> The moment your problem statement is approved, you may start working on your MVP — even if that is still on Day 1. You do not have to wait for Day 2.</p>
+        <p>The earlier you get approved, the more build time you have. There is no strict penalty for taking longer, but it is strongly encouraged that you finish and get approved by the end of Day 1. If your team is struggling, seek guidance from the facilitators rather than stalling.</p>
+      </div>
+
+      <h3 class="subhead reveal">A strong problem statement is:</h3>
+      <div class="quality-grid">
+        <div class="quality-card reveal" style="--d:0">
+          <span class="quality-num">01</span>
+          <h4>Specific</h4>
+          <p>It names who is affected and in what situation, not just a broad topic.</p>
+        </div>
+        <div class="quality-card reveal" style="--d:1">
+          <span class="quality-num">02</span>
+          <h4>Real</h4>
+          <p>It describes something that actually causes friction, delay or difficulty today.</p>
+        </div>
+        <div class="quality-card reveal" style="--d:2">
+          <span class="quality-num">03</span>
+          <h4>Solvable in three days</h4>
+          <p>Narrow enough that a small working prototype can meaningfully address it.</p>
+        </div>
+        <div class="quality-card reveal" style="--d:3">
+          <span class="quality-num">04</span>
+          <h4>Clearly within one theme</h4>
+          <p>Smarter, Gamifying or Well-Being RENO.</p>
+        </div>
+      </div>
+
+      <div class="section-divider reveal" aria-hidden="true"></div>
+
+      <p class="eyebrow reveal">Step Two</p>
+      <h3 id="step2-h" class="subhead subhead-lg reveal" style="margin-top:0">Build your MVP</h3>
+      <p class="section-lede reveal">A Minimum Viable Product is the smallest working version of your idea that actually demonstrates the solution. It does not need to be complete, polished or production-ready. It needs to work well enough for a judge to see the core concept in action.</p>
+
+      <div class="mvp-grid">
+        <div class="mvp-card reveal" style="--d:0">
+          <h4>Use any help you want</h4>
+          <p><strong>AI tools and vibe coding are not only permitted — they are encouraged.</strong> Use whatever assistants, generators or no-code tools help you move faster.</p>
+          <p>All forms of help are allowed. There is no restriction on outside references, tutorials, libraries, templates or open resources.</p>
+          <p>Facilitators are on site throughout. If your team is stuck — on the idea, the build or the pitch — consult them.</p>
+        </div>
+        <div class="mvp-card reveal" style="--d:1">
+          <h4>The one design rule to respect</h4>
+          <p>Your MVP must be designed so that it could realistically run in the environment your solution is meant for. For example: if the system your solution is intended for is a standalone system with no internet connection, your MVP cannot depend on online services to function.</p>
+        </div>
+        <div class="mvp-card reveal" style="--d:2">
+          <h4>Handling classified or sensitive information</h4>
+          <p>If any part of your problem statement, MVP or underlying idea touches information that is classified Confidential and above, you must not use the real data as-is. Mask the data or use proxies/dummy data instead. When in doubt about the classification of anything you plan to use or show, ask the Organising Committee before proceeding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. WHAT YOU MUST SUBMIT -->
+  <section id="submit" class="section section-hero-band" aria-labelledby="submit-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">What You Must Submit</p>
+      <h2 id="submit-h" class="section-title section-title-lg reveal">Two things. That's it.</h2>
+
+      <div class="submit-grid">
+        <div class="submit-card reveal" style="--d:0">
+          <span class="submit-count" data-countup="1">1</span>
+          <h3>Your crafted problem statement</h3>
+          <p>The approved problem statement your team wrote, stating the theme it falls under, who is affected and what the problem is.</p>
+        </div>
+        <div class="submit-card reveal" style="--d:1">
+          <span class="submit-count" data-countup="2">2</span>
+          <h3>Your Minimum Viable Product (MVP)</h3>
+          <p>The working prototype your team built to solve that problem statement.</p>
+        </div>
+      </div>
+
+      <p class="submit-callout reveal">"These two submissions are all that is required of your team. Nothing else is compulsory."</p>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h4 class="subhead-sm">Optional submissions</h4>
+          <p>Anything beyond the two items above — slides, written documentation, demo videos, source files, supporting material — is entirely optional.</p>
+        </div>
+        <div class="about-text reveal">
+          <h4 class="subhead-sm">How to submit</h4>
+          <p>All submissions are made through a FormSG link provided by the Organising Committee. The link will be issued to all teams during the event.</p>
+          <p>Submit through the FormSG link only — submissions sent through any other channel may not be picked up. Note the closing time stated on the FormSG form itself and submit before it. If you hit any trouble submitting, flag it to a facilitator on site immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. DAY 3: PITCHING, EXHIBITION + JUDGING -->
+  <section id="day3" class="section" aria-labelledby="day3-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Day 3</p>
+      <h2 id="day3-h" class="section-title reveal">Pitch, exhibit, get judged</h2>
+
+      <p class="eyebrow reveal" style="margin-top:0.5rem">Pitching and Exhibition</p>
+      <h3 class="subhead subhead-lg reveal sr-only">Pitching and Exhibition</h3>
+      <div class="segment-grid">
+        <div class="segment-card reveal" style="--d:0">
+          <span class="segment-time">5 minutes</span>
+          <h4>Pitch</h4>
+          <p>Your team presents its problem statement and solution to the judging panel. Keep to time.</p>
+        </div>
+        <div class="segment-card reveal" style="--d:1">
+          <span class="segment-time">5 minutes</span>
+          <h4>Q&amp;A</h4>
+          <p>The panel questions your team. Expect questions on why the problem matters, how the solution works, and how practical it is.</p>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <p>Pitching to the judging panel begins at <strong>1000H</strong> on Day 3 (25 Sep). Final touch-ups are from <strong>0930H</strong> — treat your solution as effectively locked by then.</p>
+        <p>From <strong>1300H</strong>, teams set up their solutions for the exhibition at <strong>Parliament</strong>, where RENO personnel will come round to view the work from <strong>1400H</strong>.</p>
+        <p>Prize presentation and the closing address take place at <strong>1615H</strong>.</p>
+      </div>
+
+      <div class="section-divider reveal" aria-hidden="true"></div>
+
+      <p class="eyebrow reveal">How You Will Be Judged</p>
+      <h3 id="judging-h" class="subhead subhead-lg reveal" style="margin-top:0">Four criteria. 25 points each. 100 total.</h3>
+      <p class="section-lede reveal">All four carry equal weight. The judging panel's decision is final.</p>
+
+      <div class="criteria-grid">
+        <div class="criteria-card reveal" style="--d:0">
+          <span class="criteria-pts" data-countup="25">25</span>
+          <h4>Solution Relevance &amp; Impact</h4>
+          <p>Problem fit, impact, value</p>
+        </div>
+        <div class="criteria-card reveal" style="--d:1">
+          <span class="criteria-pts" data-countup="25">25</span>
+          <h4>Innovation &amp; Creativity</h4>
+          <p>Originality, uniqueness, wow factor</p>
+        </div>
+        <div class="criteria-card reveal" style="--d:2">
+          <span class="criteria-pts" data-countup="25">25</span>
+          <h4>Prototype</h4>
+          <p>Functionality, usability, viability</p>
+        </div>
+        <div class="criteria-card reveal" style="--d:3">
+          <span class="criteria-pts" data-countup="25">25</span>
+          <h4>Pitch &amp; Presentation</h4>
+          <p>Clarity, confidence, storytelling</p>
+        </div>
+      </div>
+
+      <h4 class="subhead reveal">Full rubric</h4>
+      <div class="table-scroll reveal">
+        <table class="rubric-table">
+          <caption class="sr-only">Judging rubric — full descriptors from 5 to 25 points across four criteria</caption>
+          <thead>
+            <tr>
+              <th scope="col">Criteria</th>
+              <th scope="col">5 pts</th>
+              <th scope="col">10 pts</th>
+              <th scope="col">15 pts</th>
+              <th scope="col">20 pts</th>
+              <th scope="col">25 pts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Solution Relevance &amp; Impact</th>
+              <td data-label="5 pts">Solution is unclear or not relevant.</td>
+              <td data-label="10 pts">Solution addresses the problem with limited relevance or benefit.</td>
+              <td data-label="15 pts">Solution addresses the problem with moderate relevance or benefits.</td>
+              <td data-label="20 pts">Solution addresses the problem with clear operational or workplace benefits.</td>
+              <td data-label="25 pts">Solution addresses the problem with strong and practical benefits for the formation.</td>
+            </tr>
+            <tr>
+              <th scope="row">Innovation &amp; Creativity</th>
+              <td data-label="5 pts">Solution replicates existing ideas with little or no originality.</td>
+              <td data-label="10 pts">Minor improvements to existing solutions.</td>
+              <td data-label="15 pts">Solution demonstrates some creativity with meaningful improvements.</td>
+              <td data-label="20 pts">Innovative solution with a creative application of technology or new ideas.</td>
+              <td data-label="25 pts">Highly innovative and creative solution with clear value-add.</td>
+            </tr>
+            <tr>
+              <th scope="row">Prototype</th>
+              <td data-label="5 pts">No prototype or unable to demonstrate the solution.</td>
+              <td data-label="10 pts">Basic concept with limited functionality.</td>
+              <td data-label="15 pts">Prototype demonstrates the core concept.</td>
+              <td data-label="20 pts">Functional prototype with key features implemented.</td>
+              <td data-label="25 pts">Well-developed prototype that clearly demonstrates the proposed solution.</td>
+            </tr>
+            <tr>
+              <th scope="row">Pitch &amp; Presentation</th>
+              <td data-label="5 pts">Unclear and difficult to understand.</td>
+              <td data-label="10 pts">Basic presentation with limited explanation.</td>
+              <td data-label="15 pts">Clear presentation covering the key points.</td>
+              <td data-label="20 pts">Well-structured and convincing presentation with good responses to questions.</td>
+              <td data-label="25 pts">Highly engaging, persuasive presentation with confident responses and a clear value proposition.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. PRIZES -->
+  <section id="prizes" class="section section-hero-band" aria-labelledby="prizes-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Prizes &amp; Participation Gift</p>
+      <h2 id="prizes-h" class="section-title section-title-lg reveal">Awarded per person, not per team</h2>
+      <p class="section-lede reveal">This hackathon has one winning team only. Prizes are awarded per person, not per team — every member of the winning team receives their own unit, so three keyboards are awarded in total, one for each teammate.</p>
+
+      <div class="prize-grid prize-grid-solo">
+        <div class="prize-card prize-1 prize-solo reveal" style="--d:0">
+          <div class="prize-media">
+            <div class="prize-shelf" aria-hidden="true"></div>
+            <div class="prize-orbit" aria-hidden="true"></div>
+            <div class="prize-glow" aria-hidden="true"></div>
+            <img src="assets/prize-1-keyboard.png" alt="Razer BlackWidow V4X Keyboard" class="prize-img" loading="lazy" width="400" height="260">
+          </div>
+          <span class="prize-place">1st Place</span>
+          <h3>Razer BlackWidow V4X Keyboard</h3>
+          <p class="prize-value">$<span data-countup="129.99" data-decimals="2">129.99</span> each</p>
+          <p class="prize-total">3 keyboards for the team</p>
+        </div>
+      </div>
+
+      <div class="gift-banner reveal">
+        <div class="gift-media">
+          <div class="gift-glow" aria-hidden="true"></div>
+          <img src="assets/fidget-keycaps.jpg" alt="Custom #HACK26 fidget keycap keychains, translucent and solid versions, featuring the #HACK26 innovation emblem and starburst motif" class="gift-img" loading="lazy" width="1536" height="1024">
+        </div>
+        <div class="gift-text">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12v9H4v-9M2 7h20v5H2V7zm10 0V5a2 2 0 10-2 2h2zm0 0V5a2 2 0 112 2h-2zm0 0v14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <p><strong>Custom #HACK26 fidget keycaps</strong>, designed around the hackathon theme, will be given to every participant who attends the hackathon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. FULL EVENT PROGRAMME -->
+  <section id="programme" class="section" aria-labelledby="programme-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Full Event Programme</p>
+      <h2 id="programme-h" class="section-title reveal">The hour-by-hour schedule</h2>
+
+      <div class="programme-tabs reveal" role="tablist" aria-label="Select programme day">
+        <button role="tab" id="tab-pre" aria-controls="panel-pre" aria-selected="true" data-day="pre" class="prog-tab active">Pre-Hackathon<span>14 Sep</span></button>
+        <button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1" data-day="1" class="prog-tab">Day 1<span>23 Sep</span></button>
+        <button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-day="2" class="prog-tab">Day 2<span>24 Sep</span></button>
+        <button role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" data-day="3" class="prog-tab">Day 3<span>25 Sep</span></button>
+      </div>
+
+      <div class="programme-panels">
+        <div class="prog-panel active" id="panel-pre" role="tabpanel" aria-labelledby="tab-pre">
+          <ol class="timeline">
+            <li class="tl-item"><span class="tl-time">0900H – 1200H</span><span class="tl-text">Crafting Effective Problem Statements / Intro to Vibe Coding</span></li>
+          </ol>
+        </div>
+
+        <div class="prog-panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+          <ol class="timeline">
+            <li class="tl-item"><span class="tl-time">0900H</span><span class="tl-text">Arrival of Participants + Registration</span></li>
+            <li class="tl-item"><span class="tl-time">0915H</span><span class="tl-text">Arrival of CO RENO; Opening Speech by CO RENO</span></li>
+            <li class="tl-item"><span class="tl-time">0930H</span><span class="tl-text">Briefing of Problem Statements; Clarifications for Problem Statements</span></li>
+            <li class="tl-item"><span class="tl-time">1030H</span><span class="tl-text">Breaking into groups for Brainstorming; Tea Break 1 (Provided)</span></li>
+            <li class="tl-item"><span class="tl-time">1130H</span><span class="tl-text">Lunch Break</span></li>
+            <li class="tl-item"><span class="tl-time">1300H</span><span class="tl-text">Continuation of Brainstorming</span></li>
+            <li class="tl-item"><span class="tl-time">1500H</span><span class="tl-text">Tea Break 2 (Provided)</span></li>
+            <li class="tl-item"><span class="tl-time">1530H</span><span class="tl-text">Continuation of Brainstorming</span></li>
+            <li class="tl-item"><span class="tl-time">1700H</span><span class="tl-text">End of Day 1</span></li>
+          </ol>
+        </div>
+
+        <div class="prog-panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+          <ol class="timeline">
+            <li class="tl-item"><span class="tl-time">0900H</span><span class="tl-text">Protected Time to work on solution</span></li>
+            <li class="tl-item"><span class="tl-time">1030H</span><span class="tl-text">Tea Break 1 (Provided)</span></li>
+            <li class="tl-item"><span class="tl-time">1130H</span><span class="tl-text">Lunch Break</span></li>
+            <li class="tl-item"><span class="tl-time">1300H</span><span class="tl-text">Protected Time to work on solution</span></li>
+            <li class="tl-item"><span class="tl-time">1500H</span><span class="tl-text">Tea Break 2 (Provided)</span></li>
+            <li class="tl-item"><span class="tl-time">1530H</span><span class="tl-text">Protected Time to work on solution</span></li>
+            <li class="tl-item"><span class="tl-time">1700H</span><span class="tl-text">End of Day 2</span></li>
+          </ol>
+        </div>
+
+        <div class="prog-panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+          <ol class="timeline">
+            <li class="tl-item"><span class="tl-time">0900H</span><span class="tl-text">Arrival of Participants</span></li>
+            <li class="tl-item"><span class="tl-time">0930H</span><span class="tl-text">Final Touch Up for Solutions</span></li>
+            <li class="tl-item"><span class="tl-time">1000H</span><span class="tl-text">Pitching of solution to Judging Panel</span></li>
+            <li class="tl-item"><span class="tl-time">1200H</span><span class="tl-text">Lunch Break</span></li>
+            <li class="tl-item"><span class="tl-time">1300H</span><span class="tl-text">Setting up of Exhibition at Parliament</span></li>
+            <li class="tl-item"><span class="tl-time">1400H</span><span class="tl-text">Arrival of RENO personnel; Free &amp; Easy</span></li>
+            <li class="tl-item"><span class="tl-time">1500H</span><span class="tl-text">Tea Break (Buffet)</span></li>
+            <li class="tl-item"><span class="tl-time">1600H</span><span class="tl-text">Arrival of CO RENO</span></li>
+            <li class="tl-item"><span class="tl-time">1615H</span><span class="tl-text">Prize presentation; Closing Speech by CO RENO</span></li>
+            <li class="tl-item"><span class="tl-time">1700H</span><span class="tl-text">End of Event</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. OWNERSHIP, CONDUCT, QUESTIONS -->
+  <section id="conduct" class="section section-band" aria-labelledby="conduct-h">
+    <div class="section-inner">
+      <p class="eyebrow reveal">Ownership, Conduct and Questions</p>
+      <h2 id="conduct-h" class="section-title reveal">The fine print</h2>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h3 class="subhead-sm">Ownership of Your Work</h3>
+          <blockquote>All problem statements, prototypes and materials produced for #HACK26 are the property of the Singapore Armed Forces. By taking part, you accept that work created during the hackathon may be retained, showcased or developed further by the organisation.</blockquote>
+        </div>
+        <div class="about-text reveal">
+          <h3 class="subhead-sm">Conduct</h3>
+          <ul class="plain-list">
+            <li>Work respectfully with your assigned teammates, including those from other units.</li>
+            <li>Be mindful of what information you bring into your solution and how you present it. Use good judgement about anything sensitive.</li>
+            <li>Keep to the timings in the programme, particularly on Day 3 where the schedule is tight.</li>
+            <li>Follow the directions of the Organising Committee and facilitators throughout the event.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="questions-card reveal">
+        <h3 class="subhead-sm">Questions</h3>
+        <blockquote>For anything not covered here — including clarifications on your problem statement, your MVP or your submission — approach the facilitators on site.</blockquote>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 16. FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <img class="footer-logo" src="assets/reno-formation-logo.png" alt="RENO formation logo" width="180" height="180">
+    <p class="footer-flourish">Aspire · Collaborate · Experiment · Resolve</p>
+    <a class="footer-conduct-link" href="#conduct">Ownership, Conduct &amp; Questions</a>
+    <p class="footer-credit">Issued by the #HACK26 Organising Committee</p>
+  </div>
+</footer>
+
+<!-- Shared gear SVG definition -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="gear-shape" d="M50 8 L56 8 L58 18 L68 21 L76 14 L82 20 L75 28 L79 38 L90 40 L90 46 L79 49 L76 59 L83 67 L77 74 L68 67 L59 71 L57 82 L51 82 L48 71 L38 68 L30 75 L23 68 L31 60 L27 50 L16 48 L16 42 L27 39 L31 29 L24 21 L30 15 L38 22 L47 18 Z M50 36 A14 14 0 1 0 50 64 A14 14 0 1 0 50 36 Z" fill="currentColor" fill-rule="evenodd"/>
+  </defs>
+</svg>
+
+<script src="script.js"></script>
+</body>
+</html>
