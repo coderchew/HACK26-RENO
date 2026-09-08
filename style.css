@@ -194,7 +194,6 @@ table { font-variant-numeric: tabular-nums; }
 .section-lede {
   font-size: 1.1rem;
   color: var(--body-text);
-  max-width: 68ch;
   margin-bottom: 2.5rem;
 }
 .subhead {
@@ -222,7 +221,28 @@ table { font-variant-numeric: tabular-nums; }
   display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem;
   align-items: start;
 }
+/* A grid left with a single child would otherwise sit in the left column
+   only; let it span the full content width. */
+.about-grid:has(> :only-child) { grid-template-columns: 1fr; }
 @media (max-width: 780px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* Standalone prose blocks that own a full-width row on their own. Above the
+   same 780px breakpoint .about-grid uses, they flow into two columns so the
+   text fills the content width instead of stopping halfway; below it they
+   collapse to one column and fall back to the 68ch measure from
+   .about-text p, matching every other body block on the page.
+   Margins sit on the bottom only so both column tops align. */
+.about-text-wide > p { margin: 0 0 1.15em; }
+.about-text-wide > p:last-child { margin-bottom: 0; }
+@media (min-width: 781px) {
+  .about-text-wide {
+    columns: 2;
+    column-gap: 3rem;
+    orphans: 2;
+    widows: 2;
+  }
+  .about-text-wide > p { max-width: none; }
+}
 
 blockquote {
   margin: 0; padding: 1.1rem 1.4rem;

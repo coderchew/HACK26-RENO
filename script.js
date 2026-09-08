@@ -320,10 +320,10 @@
   })();
 
   /* ============================================================
-     6. COUNTDOWN — target 2026-09-23T09:00:00+08:00
+     6. COUNTDOWN — target 2026-09-28T09:00:00+08:00
      ============================================================ */
   (function countdown() {
-    var target = new Date('2026-09-23T09:00:00+08:00');
+    var target = new Date('2026-09-28T09:00:00+08:00');
     var daysEl = document.getElementById('cdDays');
     var hoursEl = document.getElementById('cdHours');
     var minsEl = document.getElementById('cdMinutes');
